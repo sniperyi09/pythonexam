@@ -1,3 +1,5 @@
+from functools import total_ordering
+from operator import truediv
 from platform import python_build
 
 
@@ -53,3 +55,33 @@ print(s1.intersection(s2))
 print(s1|s2)
 print(s2.union(s3))
 print( s2 - s1)
+
+def sum(a,b):
+    s = a + b
+    return s
+
+total = sum(4,7)
+print(total)
+
+def f(i,mylist):
+    i = i + 1
+    mylist.append(0)
+
+k = 10
+m = [1,2,3]
+
+f(k,m)
+print(k,m)
+
+
+a = "안녕"
+print(a)
+
+if a:
+    print(a)
+
+
+b = [1,2,3,4]
+while b:
+    b.pop()
+    print(b)
