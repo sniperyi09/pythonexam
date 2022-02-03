@@ -11,14 +11,14 @@
 
 from ast import expr_context
 
-
+# 일반적인 예외처리
 try:
     4 / 0
 except ZeroDivisionError as e:
     print(e)
 
 print("배상이랑 떡친다")
-
+#else 구문
 try:
     f = open('none', 'r')
 except FileNotFoundError as e:
@@ -27,7 +27,7 @@ else:
     data = f.read()
     print(data)
     f.close()
-
+#finally 구문
 f= open('foo.txt', 'w')
 try:
     #무언가를 실행한다.
@@ -38,3 +38,29 @@ except Exception as e:
 finally:
     f.close()
     print("유연이랑 떡친다")
+
+# 각갈 오류 처리
+try:
+    a=[1,2]
+    print(a[3])
+    4/0
+except ZeroDivisionError:
+    print("0으로 나눌 수 없습니다.")
+except IndexError:
+    print("인덱싱할 수 없습니다.")
+
+try:
+    f = open("나없는파일",'r')
+except FileNotFoundError:
+    pass
+# 고의로 오류 만들기
+class Bird:
+    def fly(self):
+        raise NotImplementedError
+
+class Eagle(Bird):
+    def fly(self):
+        print("very fast")
+
+eagle = Eagle()
+eagle.fly()
